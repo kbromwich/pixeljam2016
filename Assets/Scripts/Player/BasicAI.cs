@@ -30,9 +30,11 @@ public class BasicAI : MonoBehaviour {
             {
                 Vector3 movement = TargetTransform.position - transform.position;
                 Vector3 NormalMovement =  movement.normalized;
+
                 //print(NormalMovement);
-                float VerticalSpeed = NormalMovement.z * WalkSpeed * Time.deltaTime * RigidB.mass;
-                float HorizontalSpeed = NormalMovement.x * WalkSpeed * Time.deltaTime * RigidB.mass;
+                float VerticalSpeed = NormalMovement.x * WalkSpeed * Time.deltaTime * RigidB.mass;
+                float HorizontalSpeed = NormalMovement.z * WalkSpeed * Time.deltaTime * RigidB.mass;
+
                 RigidB.AddForce(new Vector3(VerticalSpeed, 0, HorizontalSpeed));
                 //print(RigidB.velocity.magnitude);
             }
