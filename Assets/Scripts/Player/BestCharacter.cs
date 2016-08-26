@@ -25,10 +25,11 @@ public class BestCharacter : MonoBehaviour {
     {
         if(RigidB != null && RigidB.velocity.magnitude < MaxVelocityMag)
         {
+
+            //Feature not bug. Run faster diag
             float VerticalSpeed = Input.GetAxis("Vertical") * WalkSpeed * Time.deltaTime * RigidB.mass;
             float HorizontalSpeed = -Input.GetAxis("Horizontal") * WalkSpeed * Time.deltaTime * RigidB.mass;
             RigidB.AddForce(new Vector3(VerticalSpeed, 0, HorizontalSpeed));
-            print(RigidB.velocity.magnitude);
         }
     }
 
