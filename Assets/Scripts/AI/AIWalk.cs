@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BasicAI : MonoBehaviour {
+public class AIWalk : MonoBehaviour {
 
 
     Rigidbody RigidB;
-    Transform TargetTransform;
+    Target target;
 
     public float WalkSpeed = 1.0f;
     public float MaxVelocityMag = 200.0f;
@@ -13,22 +13,18 @@ public class BasicAI : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        RigidB = GetComponent<Rigidbody>(); 
-	}
+        RigidB = GetComponent<Rigidbody>();
+        target = GetComponent<Target>();
+    }
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 
     void FixedUpdate()
     {
         if(RigidB != null && RigidB.velocity.magnitude < MaxVelocityMag)
         {
-            if(TargetTransform != null)
+            if(target != null && target.TargetTransform != null)
             {
-                Vector3 movement = TargetTransform.position - transform.position;
+                Vector3 movement = target.TargetTransform.position - transform.position;
                 Vector3 NormalMovement =  movement.normalized;
 
                 //print(NormalMovement);
@@ -39,17 +35,6 @@ public class BasicAI : MonoBehaviour {
                 //print(RigidB.velocity.magnitude);
             }
       
-        }
-    }
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        BestCharacter character = other.GetComponent<BestCharacter>(); 
-        if (character != null)
-        {
-            TargetTransform = character.transform;
-            print("Got Him");
         }
     }
 }

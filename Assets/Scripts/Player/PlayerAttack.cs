@@ -24,6 +24,8 @@ public class PlayerAttack : MonoBehaviour {
                     if(health != null)
                     {
                         attack.MakeAttack(health);
+                        Debug.DrawRay(transform.position, transform.position + transform.forward * AttackReach);
+
                     }
                    
                 }
