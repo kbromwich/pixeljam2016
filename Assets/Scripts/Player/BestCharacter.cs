@@ -9,6 +9,8 @@ public class BestCharacter : MonoBehaviour {
     public float WalkSpeed = 1.0f;
     public float MaxVelocityMag = 200.0f;
 
+    public string Controller = "k";
+
     // Use this for initialization
     void Start ()
     {
@@ -27,8 +29,8 @@ public class BestCharacter : MonoBehaviour {
         {
 
             //Feature not bug. Run faster diag
-            float VerticalSpeed = Input.GetAxis("Vertical") * WalkSpeed * Time.deltaTime * RigidB.mass;
-            float HorizontalSpeed = -Input.GetAxis("Horizontal") * WalkSpeed * Time.deltaTime * RigidB.mass;
+            float VerticalSpeed = Input.GetAxis(Controller + "Vertical") * WalkSpeed * Time.deltaTime * RigidB.mass;
+            float HorizontalSpeed = -Input.GetAxis(Controller + "Horizontal") * WalkSpeed * Time.deltaTime * RigidB.mass;
             RigidB.AddForce(new Vector3(VerticalSpeed, 0, HorizontalSpeed));
         }
     }
