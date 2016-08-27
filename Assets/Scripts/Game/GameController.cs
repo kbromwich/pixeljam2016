@@ -8,12 +8,13 @@ public class GameController : MonoBehaviour {
     PlayerSpawn[] playerSpawners;
     List<PlayerSpawn> UsedPlayerSpawn;
 
-    void Awake()
+    void Start()
     {
+        UsedPlayerSpawn = new List<PlayerSpawn>();
         playerSpawners =  FindObjectsOfType<PlayerSpawn>();
-        for(int i = 0; i < MainMenu.NumPlayers; i++)
+        for(int i = 0; i < MainMenu.NumPlayers && i < playerSpawners.Length; i++)
         {
-            UsedPlayerSpawn[i] = playerSpawners[i];
+            UsedPlayerSpawn.Add(playerSpawners[i]);
         }
     }
 
