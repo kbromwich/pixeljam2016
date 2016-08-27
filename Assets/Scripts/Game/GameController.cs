@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour {
         foreach(Player player in Players)
         {
             player.name = Names[player.Index];
-            player.SetMaterialColour(Colors[player.Index]);
+			player.GetComponent<MeshColourer>().SetMaterialColour(Colors[player.Index]);
         }
     }
 
