@@ -42,6 +42,8 @@ public class Ragdoll : MonoBehaviour {
 
         Rigidbody HornRB = unrag.Horn.GetComponent<Rigidbody>();
         HornRB.AddForce(ragRb.transform.forward * -6000.0f);
+
+        unrag.ChestSkinnerMeshRenderer.material.color = GetComponent<Player>().color;
         //ragRb.AddTorque(ragRb.transform.forward * 300000000.0f);
         //ragRb.AddForce(ragRb.transform.forward * 10000000.0f);
 

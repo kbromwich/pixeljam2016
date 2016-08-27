@@ -7,9 +7,17 @@ public class GameController : MonoBehaviour {
     
     List<Player> Players;
 
+    public string[] Names;
+    public Color[] Colors;
+
     void Start()
     {
         Players = new List<Player>(FindObjectsOfType<Player>());
+        foreach(Player player in Players)
+        {
+            player.name = Names[player.Index];
+            player.SetMaterialColour(Colors[player.Index]);
+        }
     }
 
 
@@ -17,9 +25,11 @@ public class GameController : MonoBehaviour {
     {
         Players.Remove(player);
 
-        if (Players.Count <= 1)
+        if (Players.Count == 1)
         {
-            SceneManager.LoadScene("Menu");
+            print("Winner player is: " + Players[0].Index);
+            EndGameUIController item = FindObjectOfType<EndGameUIController>();
+            item.PlayerWon(Players[0].name);
         }
     }
 }

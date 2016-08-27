@@ -5,6 +5,7 @@ public class UnRagdoll : MonoBehaviour {
 
     public string inputCommand = "";
     public Ragdoll reactivate = null;
+    public SkinnedMeshRenderer ChestSkinnerMeshRenderer;
 
     public GameObject WhereToSpawn;
     public GameObject Horn;
