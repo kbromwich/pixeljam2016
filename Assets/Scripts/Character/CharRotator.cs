@@ -25,6 +25,6 @@ public class CharRotator : MonoBehaviour {
             }
         }
 
-        Debug.DrawRay(transform.position, transform.forward, Color.red, 10);
+        //Debug.DrawRay(transform.position, transform.forward, Color.red, 10);
     }
 }

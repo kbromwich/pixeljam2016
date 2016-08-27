@@ -6,14 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public static int NumPlayers = 2;
+    public static int NumBots = 2;
+
+
     List<MenuItem> menuOptions = new List<MenuItem>();
     int selectedIndex = 0;
     int xinput = 0;
     int yinput = 0;
+    bool submit = false;
     float lastxinput = 0;
     float lastyinput = 0;
-    bool submit = false;
-    
+    bool lastsubmit = false;
+
     MenuItem players;
     MenuItem bots;
 
@@ -61,19 +66,20 @@ public class MainMenu : MonoBehaviour
         }
 
         selectedIndex = Mod(selectedIndex - yinput, menuOptions.Count);
-        submit = Input.GetButtonDown("Submit");
+        submit = !lastsubmit && Input.GetButtonDown("Submit");
 
         menuOptions[selectedIndex].Update(xinput);
 
         lastxinput = horizontalAxis;
         lastyinput = verticalAxis;
+        lastsubmit = submit;
     }
 
     void Play()
     {
         print("Play!");
-        int numPlayers = int.Parse(players.SelectedOption());
-        int numBots = int.Parse(bots.SelectedOption());
+        NumPlayers = int.Parse(players.SelectedOption());
+        NumBots = int.Parse(bots.SelectedOption());
 
         print("Loading scene Main");
         SceneManager.LoadScene("Main");
