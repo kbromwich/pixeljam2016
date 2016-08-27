@@ -5,6 +5,11 @@ public class HealthBar : MonoBehaviour {
 
 	private Health health;
 	public RectTransform healthRect;
+	private float maxHealthLength;
+
+	private void Awake(){
+		maxHealthLength = healthRect.rect.width;
+	}
 
 	public void SetHealthToFollow(Health h){
 		health = h;
@@ -16,6 +21,8 @@ public class HealthBar : MonoBehaviour {
 	}
 
 	private void HealthChanged(float normHealthValue){
-		Debug.Log ("Health changed! " + normHealthValue);
+		Rect r = healthRect.rect;
+		r.width = normHealthValue * maxHealthLength;
+		healthRect.sizeDelta = new Vector2(r.width, r.height);
 	}
 }
