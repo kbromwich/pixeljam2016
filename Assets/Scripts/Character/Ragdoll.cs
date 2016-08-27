@@ -26,7 +26,7 @@ public class Ragdoll : MonoBehaviour {
             ActiveRagdoll();
         }
 	}
-
+           
     public void ActiveRagdoll()
     {
         SpawnedRagdoll = Instantiate(RagdollToSpawn);
@@ -62,8 +62,8 @@ public class Ragdoll : MonoBehaviour {
         body.velocity = velocity;
 
         //Health
-        Health health = ragdoll.GetComponent<Health>();
-        GetComponent<Health>().ChangeHealth(health.health);
+//        Health health = ragdoll.GetComponent<Health>();
+//        GetComponent<Health>().ChangeHealth(health.health);
 
         Destroy(ragdoll);
     }

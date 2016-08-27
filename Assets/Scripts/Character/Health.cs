@@ -20,8 +20,9 @@ public class Health : MonoBehaviour {
 	{
         //print("Health changed to " + amount);
 		health += amount;
-		if(HealthChangedEvent != null)
-			HealthChangedEvent (health/maxHealth);
+		if (HealthChangedEvent != null) {
+			HealthChangedEvent (health / maxHealth);
+		}
 		if(health < 0f)
 		{
 			KillCharacter();

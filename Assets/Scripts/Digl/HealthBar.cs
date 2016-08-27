@@ -5,19 +5,11 @@ public class HealthBar : MonoBehaviour {
 
 	private Health health;
 	public RectTransform healthRect;
-	private float maxHealthLength;
-
-	private void Awake(){
-		maxHealthLength = healthRect.rect.width;
-	}
+	private float maxHealthLength = 50f;
 
 	public void SetHealthToFollow(Health h){
 		health = h;
 		health.HealthChangedEvent += HealthChanged;
-	}
-
-	void OnDisable(){
-		health.HealthChangedEvent -= HealthChanged;
 	}
 
 	private void HealthChanged(float normHealthValue){
