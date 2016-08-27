@@ -1,0 +1,556 @@
+fileFormatVersion: 2
+guid: f18d29e5271bd804f9d9449ad991add7
+timeCreated: 1472322054
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: pCone1
+    100002: pCone10
+    100004: pCone11
+    100006: pCone12
+    100008: pCone13
+    100010: pCone14
+    100012: pCone15
+    100014: pCone16
+    100016: pCone17
+    100018: pCone18
+    100020: pCone19
+    100022: pCone2
+    100024: pCone20
+    100026: pCone3
+    100028: pCone4
+    100030: pCone5
+    100032: pCone6
+    100034: pCone7
+    100036: pCone8
+    100038: pCone9
+    100040: pCube1
+    100042: pCube2
+    100044: pCube3
+    100046: pCube4
+    100048: polySurface1
+    100050: polySurface2
+    100052: polySurface3
+    100054: polySurface4
+    100056: polySurface4 1
+    100058: polySurface5
+    100060: polySurface6
+    100062: polySurface6 1
+    100064: polySurface7
+    100066: pPipe1
+    100068: pPipe2
+    100070: pPipe3
+    100072: //RootNode
+    100074: transform1
+    100076: transform10
+    100078: transform11
+    100080: transform12
+    100082: transform13
+    100084: transform14
+    100086: transform15
+    100088: transform16
+    100090: transform17
+    100092: transform18
+    100094: transform19
+    100096: transform2
+    100098: transform20
+    100100: transform21
+    100102: transform22
+    100104: transform23
+    100106: transform24
+    100108: transform25
+    100110: transform26
+    100112: transform27
+    100114: transform28
+    100116: transform29
+    100118: transform3
+    100120: transform30
+    100122: transform31
+    100124: transform32
+    100126: transform4
+    100128: transform5
+    100130: transform6
+    100132: transform7
+    100134: transform8
+    100136: transform9
+    400000: pCone1
+    400002: pCone10
+    400004: pCone11
+    400006: pCone12
+    400008: pCone13
+    400010: pCone14
+    400012: pCone15
+    400014: pCone16
+    400016: pCone17
+    400018: pCone18
+    400020: pCone19
+    400022: pCone2
+    400024: pCone20
+    400026: pCone3
+    400028: pCone4
+    400030: pCone5
+    400032: pCone6
+    400034: pCone7
+    400036: pCone8
+    400038: pCone9
+    400040: pCube1
+    400042: pCube2
+    400044: pCube3
+    400046: pCube4
+    400048: polySurface1
+    400050: polySurface2
+    400052: polySurface3
+    400054: polySurface4
+    400056: polySurface4 1
+    400058: polySurface5
+    400060: polySurface6
+    400062: polySurface6 1
+    400064: polySurface7
+    400066: pPipe1
+    400068: pPipe2
+    400070: pPipe3
+    400072: //RootNode
+    400074: transform1
+    400076: transform10
+    400078: transform11
+    400080: transform12
+    400082: transform13
+    400084: transform14
+    400086: transform15
+    400088: transform16
+    400090: transform17
+    400092: transform18
+    400094: transform19
+    400096: transform2
+    400098: transform20
+    400100: transform21
+    400102: transform22
+    400104: transform23
+    400106: transform24
+    400108: transform25
+    400110: transform26
+    400112: transform27
+    400114: transform28
+    400116: transform29
+    400118: transform3
+    400120: transform30
+    400122: transform31
+    400124: transform32
+    400126: transform4
+    400128: transform5
+    400130: transform6
+    400132: transform7
+    400134: transform8
+    400136: transform9
+    2300000: polySurface6
+    2300002: polySurface7
+    2300004: pPipe1
+    2300006: pPipe2
+    3300000: polySurface6
+    3300002: polySurface7
+    3300004: pPipe1
+    3300006: pPipe2
+    4300000: pPipe1
+    4300002: pPipe2
+    4300004: polySurface7
+    4300006: polySurface6
+    7400000: Slower
+    7400002: Gap
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Slower
+      takeName: Take 001
+      firstFrame: 14
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pCone1
+        weight: 1
+      - path: pCone1/transform31
+        weight: 1
+      - path: pCone2
+        weight: 1
+      - path: pCone2/transform30
+        weight: 1
+      - path: pCone3
+        weight: 1
+      - path: pCone3/transform29
+        weight: 1
+      - path: pCone4
+        weight: 1
+      - path: pCone4/transform28
+        weight: 1
+      - path: pCone5
+        weight: 1
+      - path: pCone5/transform27
+        weight: 1
+      - path: pCone6
+        weight: 1
+      - path: pCone6/transform26
+        weight: 1
+      - path: pCone7
+        weight: 1
+      - path: pCone7/transform25
+        weight: 1
+      - path: pCone8
+        weight: 1
+      - path: pCone8/transform24
+        weight: 1
+      - path: pCone9
+        weight: 1
+      - path: pCone9/transform23
+        weight: 1
+      - path: pCone10
+        weight: 1
+      - path: pCone10/transform22
+        weight: 1
+      - path: pCone11
+        weight: 1
+      - path: pCone11/transform21
+        weight: 1
+      - path: pCone12
+        weight: 1
+      - path: pCone12/transform20
+        weight: 1
+      - path: pCone13
+        weight: 1
+      - path: pCone13/transform19
+        weight: 1
+      - path: pCone14
+        weight: 1
+      - path: pCone14/transform18
+        weight: 1
+      - path: pCone15
+        weight: 1
+      - path: pCone15/transform17
+        weight: 1
+      - path: pCone16
+        weight: 1
+      - path: pCone16/transform16
+        weight: 1
+      - path: pCone17
+        weight: 1
+      - path: pCone17/transform15
+        weight: 1
+      - path: pCone18
+        weight: 1
+      - path: pCone18/transform14
+        weight: 1
+      - path: pCone19
+        weight: 1
+      - path: pCone19/transform13
+        weight: 1
+      - path: pCone20
+        weight: 1
+      - path: pCone20/transform12
+        weight: 1
+      - path: pCube1
+        weight: 1
+      - path: pCube1/transform2
+        weight: 1
+      - path: pCube2
+        weight: 1
+      - path: pCube2/transform7
+        weight: 1
+      - path: pCube3
+        weight: 1
+      - path: pCube3/polySurface1
+        weight: 1
+      - path: pCube3/polySurface1/transform5
+        weight: 1
+      - path: pCube3/polySurface2
+        weight: 1
+      - path: pCube3/polySurface2/transform6
+        weight: 1
+      - path: pCube3/polySurface3
+        weight: 1
+      - path: pCube3/polySurface3/transform4
+        weight: 1
+      - path: pCube3/transform3
+        weight: 1
+      - path: pCube4
+        weight: 1
+      - path: pCube4/polySurface4 1
+        weight: 1
+      - path: pCube4/polySurface4 1/transform10
+        weight: 1
+      - path: pCube4/polySurface5
+        weight: 1
+      - path: pCube4/polySurface5/transform9
+        weight: 1
+      - path: pCube4/transform8
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      - path: polySurface4/polySurface6 1
+        weight: 1
+      - path: polySurface4/polySurface6 1/transform32
+        weight: 1
+      - path: polySurface4/polySurface7
+        weight: 1
+      - path: polySurface4/transform11
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      - path: pPipe1
+        weight: 1
+      - path: pPipe2
+        weight: 1
+      - path: pPipe3
+        weight: 1
+      - path: pPipe3/transform1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 14
+    - serializedVersion: 16
+      name: Gap
+      takeName: Take 001
+      firstFrame: 60
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pCone1
+        weight: 1
+      - path: pCone1/transform31
+        weight: 1
+      - path: pCone2
+        weight: 1
+      - path: pCone2/transform30
+        weight: 1
+      - path: pCone3
+        weight: 1
+      - path: pCone3/transform29
+        weight: 1
+      - path: pCone4
+        weight: 1
+      - path: pCone4/transform28
+        weight: 1
+      - path: pCone5
+        weight: 1
+      - path: pCone5/transform27
+        weight: 1
+      - path: pCone6
+        weight: 1
+      - path: pCone6/transform26
+        weight: 1
+      - path: pCone7
+        weight: 1
+      - path: pCone7/transform25
+        weight: 1
+      - path: pCone8
+        weight: 1
+      - path: pCone8/transform24
+        weight: 1
+      - path: pCone9
+        weight: 1
+      - path: pCone9/transform23
+        weight: 1
+      - path: pCone10
+        weight: 1
+      - path: pCone10/transform22
+        weight: 1
+      - path: pCone11
+        weight: 1
+      - path: pCone11/transform21
+        weight: 1
+      - path: pCone12
+        weight: 1
+      - path: pCone12/transform20
+        weight: 1
+      - path: pCone13
+        weight: 1
+      - path: pCone13/transform19
+        weight: 1
+      - path: pCone14
+        weight: 1
+      - path: pCone14/transform18
+        weight: 1
+      - path: pCone15
+        weight: 1
+      - path: pCone15/transform17
+        weight: 1
+      - path: pCone16
+        weight: 1
+      - path: pCone16/transform16
+        weight: 1
+      - path: pCone17
+        weight: 1
+      - path: pCone17/transform15
+        weight: 1
+      - path: pCone18
+        weight: 1
+      - path: pCone18/transform14
+        weight: 1
+      - path: pCone19
+        weight: 1
+      - path: pCone19/transform13
+        weight: 1
+      - path: pCone20
+        weight: 1
+      - path: pCone20/transform12
+        weight: 1
+      - path: pCube1
+        weight: 1
+      - path: pCube1/transform2
+        weight: 1
+      - path: pCube2
+        weight: 1
+      - path: pCube2/transform7
+        weight: 1
+      - path: pCube3
+        weight: 1
+      - path: pCube3/polySurface1
+        weight: 1
+      - path: pCube3/polySurface1/transform5
+        weight: 1
+      - path: pCube3/polySurface2
+        weight: 1
+      - path: pCube3/polySurface2/transform6
+        weight: 1
+      - path: pCube3/polySurface3
+        weight: 1
+      - path: pCube3/polySurface3/transform4
+        weight: 1
+      - path: pCube3/transform3
+        weight: 1
+      - path: pCube4
+        weight: 1
+      - path: pCube4/polySurface4 1
+        weight: 1
+      - path: pCube4/polySurface4 1/transform10
+        weight: 1
+      - path: pCube4/polySurface5
+        weight: 1
+      - path: pCube4/polySurface5/transform9
+        weight: 1
+      - path: pCube4/transform8
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      - path: polySurface4/polySurface6 1
+        weight: 1
+      - path: polySurface4/polySurface6 1/transform32
+        weight: 1
+      - path: polySurface4/polySurface7
+        weight: 1
+      - path: polySurface4/transform11
+        weight: 1
+      - path: polySurface6
+        weight: 1
+      - path: pPipe1
+        weight: 1
+      - path: pPipe2
+        weight: 1
+      - path: pPipe3
+        weight: 1
+      - path: pPipe3/transform1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 14
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
