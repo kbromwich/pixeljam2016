@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
 
         for (int i = 0; i < menuItems.Length; i++)
         {
-            menuItems[i].color = Color.black;
+            menuItems[i].color = Color.white;
         }
 
 

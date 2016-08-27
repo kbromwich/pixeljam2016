@@ -5,13 +5,16 @@ public class Player : MonoBehaviour
 {
     public int Index;
 
-    public SkinnedMeshRenderer matRenderer;
+	public Renderer[] playColourMeshes;
 
-    public string Name;
+	// Your other calls are to Player.name, which is inherited from GameObject.name. Same diff.
+//    public string Name;
     public Color color;
 
    public void SetMaterialColour(Color color)
     {
-        matRenderer.material.color = color;
+		foreach (Renderer smr in playColourMeshes) {
+			smr.material.color = color;
+		}
     }
 }
