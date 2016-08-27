@@ -1,40 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(WalkPhysics))]
 public class AIWalk : MonoBehaviour {
 
-
-    Rigidbody RigidB;
+    WalkPhysics walker;
     Target target;
-
-    public float WalkSpeed = 1.0f;
-    public float MaxVelocityMag = 200.0f;
-
     // Use this for initialization
     void Start ()
     {
-        RigidB = GetComponent<Rigidbody>();
         target = GetComponent<Target>();
+        walker = GetComponent<WalkPhysics>();
     }
 	
 
     void FixedUpdate()
     {
-        if(RigidB != null && RigidB.velocity.magnitude < MaxVelocityMag)
+        if(target != null && target.TargetTransform != null)
         {
-            if(target != null && target.TargetTransform != null)
-            {
-                Vector3 movement = target.TargetTransform.position - transform.position;
-                Vector3 NormalMovement =  movement.normalized;
+            Vector3 movement = target.TargetTransform.position - transform.position;
 
-                //print(NormalMovement);
-                float VerticalSpeed = NormalMovement.x * WalkSpeed * Time.deltaTime * RigidB.mass;
-                float HorizontalSpeed = NormalMovement.z * WalkSpeed * Time.deltaTime * RigidB.mass;
-
-                RigidB.AddForce(new Vector3(VerticalSpeed, 0, HorizontalSpeed));
-                //print(RigidB.velocity.magnitude);
-            }
-      
+            walker.SetMovementInput(new Vector3(movement.x, 0, movement.z));
+            //print(RigidB.velocity.magnitude);
         }
     }
 }

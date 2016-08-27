@@ -12,7 +12,7 @@ public class AITarget : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        BestCharacter character = other.GetComponent<BestCharacter>();
+        PlayerMovementInput character = other.GetComponent<PlayerMovementInput>();
         if (character != null)
         {
             target.TargetTransform = character.transform;
