@@ -8,7 +8,7 @@ public class HornAttack : MonoBehaviour {
 
     void Awake()
     {
-        Emitter = GameObject.Instantiate(Resources.Load<GameObject>("Sparks"));
+        Emitter = Resources.Load<GameObject>("Sparks");
     }
 
 	private void OnTriggerEnter(Collider c){
