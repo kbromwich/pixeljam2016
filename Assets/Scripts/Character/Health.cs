@@ -4,19 +4,29 @@ using System.Collections;
 public class Health : MonoBehaviour {
 
     public float health = 69.0f;
+	public float maxHealth = 69f;
+
+	public delegate void HealthChangedDelegate(float normHealthValue);
+	public event HealthChangedDelegate HealthChangedEvent;
 
     public void TakeDamage(float damage)
-    {
-        health -= damage;
-        if(health < 0)
-        {
-            KillCharacter();
-        }
+	{
+		ChangeHealth(damage);
     }
+
+	private void ChangeHealth(float amount)
+	{
+		health += amount;
+		HealthChangedEvent (health/maxHealth);
+		if(health < 0f)
+		{
+			KillCharacter();
+		}
+	}
 
     void KillCharacter()
     {
-
+		// rip
     }
 
 }
