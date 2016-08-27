@@ -36,5 +36,7 @@ public class WalkPhysics : MonoBehaviour {
             float HorizontalSpeed = -NormalizedInput.z * WalkSpeed * Time.deltaTime * RigidB.mass;
             RigidB.AddForce(new Vector3(VerticalSpeed, 0, HorizontalSpeed));
         }
+
+        NormalizedInput = Vector3.zero;
     }
 }

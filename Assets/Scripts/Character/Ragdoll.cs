@@ -7,6 +7,8 @@ public class Ragdoll : MonoBehaviour {
     public float TimeSinceRagdoll;
     public GameObject StandardCharacter;
 
+    public PlayerMovementInput input;
+
     public string RagdollKey;
     GameObject SpawnedRagdoll;
 
@@ -21,6 +23,10 @@ public class Ragdoll : MonoBehaviour {
                 Destroy(SpawnedRagdoll);
                 StandardCharacter.SetActive(true);
                 RagdollIsActive = false;
+                if (input != null)
+                {
+                    input.enabled = true;
+                }
             }
             else
             {
@@ -30,6 +36,10 @@ public class Ragdoll : MonoBehaviour {
                 SpawnedRagdoll.transform.localScale = StandardCharacter.transform.localScale;
                 //SpawnedRagdoll.transform.parent = StandardCharacter.transform.parent;
                 StandardCharacter.SetActive(false);
+                if(input != null)
+                {
+                    input.enabled = false;
+                }
                 RagdollIsActive = true;
             }
            
