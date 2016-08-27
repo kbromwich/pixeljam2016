@@ -31,7 +31,7 @@ public class Health : MonoBehaviour {
 
 	protected virtual void KillCharacter()
     {
-		// rip
+		GetComponent<PlayerDeath> ().Kill ();
     }
 
 }
