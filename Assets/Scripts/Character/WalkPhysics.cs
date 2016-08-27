@@ -10,17 +10,17 @@ public class WalkPhysics : MonoBehaviour {
     public float MaxVelocityMag = 200.0f;
     public float VelocityFalloff = 0.05f;
 
-    Vector3 InputValue = Vector3.zero;
+    Vector3 NormalizedInput = Vector3.zero;
 
-    // Use this for initialization
-    void Start()
+     // Use this for initialization
+     void Start()
     {
         RigidB = GetComponent<Rigidbody>();
     }
 
     public void SetMovementInput(Vector3 input)
     {
-        InputValue = input;
+        NormalizedInput = input.normalized;
     }
 
 
@@ -32,8 +32,8 @@ public class WalkPhysics : MonoBehaviour {
         if (RigidB.velocity.magnitude < MaxVelocityMag)
         {
             //Feature not bug. Run faster diag
-            float VerticalSpeed = InputValue.x * WalkSpeed * Time.deltaTime * RigidB.mass;
-            float HorizontalSpeed = -InputValue.z * WalkSpeed * Time.deltaTime * RigidB.mass;
+            float VerticalSpeed = NormalizedInput.x * WalkSpeed * Time.deltaTime * RigidB.mass;
+            float HorizontalSpeed = -NormalizedInput.z * WalkSpeed * Time.deltaTime * RigidB.mass;
             RigidB.AddForce(new Vector3(VerticalSpeed, 0, HorizontalSpeed));
         }
     }

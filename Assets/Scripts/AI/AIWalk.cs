@@ -20,7 +20,7 @@ public class AIWalk : MonoBehaviour {
         {
             Vector3 movement = target.TargetTransform.position - transform.position;
 
-            walker.SetMovementInput(new Vector3(movement.x, 0, movement.z));
+            walker.SetMovementInput(new Vector3(movement.x, 0, -movement.z));
             //print(RigidB.velocity.magnitude);
         }
     }
