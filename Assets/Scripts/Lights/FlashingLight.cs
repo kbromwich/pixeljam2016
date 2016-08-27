@@ -9,13 +9,13 @@ public class FlashingLight : MonoBehaviour
     float NextLightChange = 0.0f;
     bool LightOn = false;
 
-    Light light;
+    Light LightToFlash;
     float LightIntensity;
 
     void Start()
     {
-        light = GetComponent<Light>();
-        LightIntensity = light.intensity;
+        LightToFlash = GetComponent<Light>();
+        LightIntensity = LightToFlash.intensity;
     }
 
     void Update()
@@ -24,7 +24,7 @@ public class FlashingLight : MonoBehaviour
         {
             LightOn = !LightOn;
 
-            light.intensity = LightOn ? 0 : LightIntensity;
+            LightToFlash.intensity = LightOn ? 0 : LightIntensity;
             NextLightChange = Time.time + FlashRate;
         }
     }

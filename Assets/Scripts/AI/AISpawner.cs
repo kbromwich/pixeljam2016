@@ -7,6 +7,12 @@ public class AISpawner : MonoBehaviour {
     public int SpawnCount = 200;
     public float SpawnTime = 10.0f;
 
+    public Vector3 StartVelocity = new Vector3(0.0f, 0.0f, 0.0f);
+    public bool RandomVelocity = false;
+    public Vector3 RandomVelocityRange = new Vector3(0.0f, 0.0f, 0.0f);
+
+    public float SpawnRange = 10.0f;
+
     float TimeSinceLastSpawn = 0.0f;
     float TimeBetweenSpawns = 0.0f;
     int SpawnsLeft = 0;
@@ -28,9 +34,29 @@ public class AISpawner : MonoBehaviour {
             {
                 //Spawn shit
                 GameObject spawnedGameObject = Instantiate<GameObject>(ItemToSpawn);
-                spawnedGameObject.transform.position = transform.position;
+                
+                spawnedGameObject.transform.position = transform.position + Random.onUnitSphere * SpawnRange;
                 TimeSinceLastSpawn = 0;
                 --SpawnsLeft;
+
+                Rigidbody rigid = spawnedGameObject.GetComponent<Rigidbody>();
+                if(rigid)
+                {
+
+                    if(RandomVelocity)
+                    {
+                        float xVel = Random.Range(0, RandomVelocityRange.x);
+                        float yVel = Random.Range(0, RandomVelocityRange.y);
+                        float zVel = Random.Range(0, RandomVelocityRange.z);
+
+                        rigid.velocity = new Vector3(xVel, yVel, zVel);
+                    }
+                    else
+                    {
+                        rigid.velocity = StartVelocity;
+                    }
+                    
+                }
             }
         }
     }
