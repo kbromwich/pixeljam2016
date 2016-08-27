@@ -11,10 +11,11 @@ public class HornAttack : MonoBehaviour {
         Emitter = GameObject.Instantiate(Resources.Load<GameObject>("Sparks"));
     }
 
-	private void OnCollisionEnter(Collision c){
+	private void OnTriggerEnter(Collider c){
         HealthHitbox health = c.gameObject.GetComponent<HealthHitbox>();
-
-		if (health && health != HealthToAvoid) {
+		print ("Collision");
+		if (health && (health != HealthToAvoid)) {
+			print ("Horn Attack collision!");
             Instantiate(Emitter, c.transform.position, c.transform.rotation);
             Attack attackComp = GetComponent<Attack>();
             attackComp.MakeAttack(health.health);

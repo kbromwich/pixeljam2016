@@ -9,14 +9,14 @@ public class Health : MonoBehaviour {
 	public delegate void HealthChangedDelegate(float normHealthValue);
 	public event HealthChangedDelegate HealthChangedEvent;
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
 	{
         print("Hit! Damage dealt: " + damage);
         ChangeHealth(-Mathf.Abs(damage));
 
     }
 
-	public void ChangeHealth(float amount)
+	public virtual void ChangeHealth(float amount)
 	{
         //print("Health changed to " + amount);
 		health += amount;
@@ -28,7 +28,7 @@ public class Health : MonoBehaviour {
 		}
 	}
 
-    void KillCharacter()
+	protected virtual void KillCharacter()
     {
 		// rip
     }

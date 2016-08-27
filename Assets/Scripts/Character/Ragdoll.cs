@@ -25,6 +25,9 @@ public class Ragdoll : MonoBehaviour {
         {
             SpawnedRagdoll = Instantiate(RagdollToSpawn);
             var unrag = SpawnedRagdoll.GetComponent<UnRagdoll>();
+			// We pass the reference to our own health on the the ragdoll. Its collider's events will be pushed onto ours, this way.
+			HealthReference ragdollHealth = SpawnedRagdoll.GetComponent<HealthReference> ();
+			ragdollHealth.actualHealth = GetComponent<Health> ();
             SpawnedRagdoll.transform.position = gameObject.transform.position;
             SpawnedRagdoll.transform.rotation = gameObject.transform.rotation;
 
