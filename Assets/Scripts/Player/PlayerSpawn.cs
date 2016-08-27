@@ -5,6 +5,7 @@ public class PlayerSpawn : MonoBehaviour {
 
     public GameObject ItemToSpawn;
     public int playerNum = 999;
+    public GameObject SpawnedPlayer;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class PlayerSpawn : MonoBehaviour {
             
             GameObject obj = Instantiate<GameObject>(ItemToSpawn);
             obj.transform.position = transform.position;
+            SpawnedPlayer = obj;
 
             var movement = obj.GetComponent<PlayerMovementInput>();
             if (movement != null)
