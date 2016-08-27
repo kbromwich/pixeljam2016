@@ -4,36 +4,20 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
-
-    PlayerSpawn[] playerSpawners;
-    List<PlayerSpawn> UsedPlayerSpawn;
+    
+    List<Player> Players;
 
     void Start()
     {
-        UsedPlayerSpawn = new List<PlayerSpawn>();
-        playerSpawners =  FindObjectsOfType<PlayerSpawn>();
-        for(int i = 0; i < MainMenu.NumPlayers && i < playerSpawners.Length; i++)
-        {
-            UsedPlayerSpawn.Add(playerSpawners[i]);
-        }
+        Players = new List<Player>(FindObjectsOfType<Player>());
     }
 
 
-    void KillPlayer(GameObject Player)
+    public void KillPlayer(Player player)
     {
-        PlayerSpawn SpawnerToRemove = null;
+        Players.Remove(player);
 
-        foreach (PlayerSpawn spawner in UsedPlayerSpawn)
-        {
-            if(spawner.SpawnedPlayer == Player)
-            {
-                SpawnerToRemove = spawner;
-            }
-        }
-
-        UsedPlayerSpawn.Remove(SpawnerToRemove);
-
-        if(UsedPlayerSpawn.Count <= 0)
+        if (Players.Count <= 1)
         {
             SceneManager.LoadScene("Menu");
         }

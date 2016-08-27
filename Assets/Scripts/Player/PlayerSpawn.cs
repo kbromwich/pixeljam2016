@@ -8,7 +8,7 @@ public class PlayerSpawn : MonoBehaviour {
     public GameObject SpawnedPlayer;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 	    if (playerNum < MainMenu.NumPlayers)
         {
             string controller = "k";
@@ -25,6 +25,11 @@ public class PlayerSpawn : MonoBehaviour {
             if (movement != null)
             {
                 movement.Controller = controller;
+            }
+            var player = obj.GetComponent<Player>();
+            if (player != null)
+            {
+                player.Index = playerNum;
             }
             var ragdoll = obj.GetComponent<Ragdoll>();
             if (movement != null)

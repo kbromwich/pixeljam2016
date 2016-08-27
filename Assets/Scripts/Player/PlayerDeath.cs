@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+[RequireComponent(typeof(Health))]
 public class PlayerDeath : MonoBehaviour {
 
     Health health;
@@ -14,10 +14,14 @@ public class PlayerDeath : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-	    if(!HasDied && health != null && health.health < 0)
+	    if(!HasDied && health.health < 0)
         {
             HasDied = true;
-            //TODO implement deaths something?
+            Ragdoll ragdoll = GetComponent<Ragdoll>();
+            ragdoll.ActiveRagdoll();
+
+            GameController controller = FindObjectOfType<GameController>();
+            controller.KillPlayer(GetComponent<Player>());
             Destroy(gameObject);
         }
 	}
