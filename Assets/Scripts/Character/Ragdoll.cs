@@ -5,45 +5,43 @@ public class Ragdoll : MonoBehaviour {
 
     public GameObject RagdollToSpawn;
     public float TimeSinceRagdoll;
-    public GameObject StandardCharacter;
 
-    public PlayerMovementInput input;
+    Rigidbody body;
 
     public string Controller;
     GameObject SpawnedRagdoll;
 
     bool RagdollIsActive = false;
+
+    void Start()
+    {
+        body = GetComponent<Rigidbody>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetButtonDown(Controller + "Fire1"))
+        if (Input.GetButtonDown(Controller + "Fire1"))
         {
-            if(RagdollIsActive)
-            {
-                Destroy(SpawnedRagdoll);
-                StandardCharacter.SetActive(true);
-                RagdollIsActive = false;
-                if (input != null)
-                {
-                    input.enabled = true;
-                }
-            }
-            else
-            {
-                SpawnedRagdoll = Instantiate(RagdollToSpawn);
-                SpawnedRagdoll.transform.position = StandardCharacter.transform.position;
-                SpawnedRagdoll.transform.rotation = StandardCharacter.transform.rotation;
-                SpawnedRagdoll.transform.localScale = StandardCharacter.transform.localScale;
-                //SpawnedRagdoll.transform.parent = StandardCharacter.transform.parent;
-                StandardCharacter.SetActive(false);
-                if(input != null)
-                {
-                    input.enabled = false;
-                }
-                RagdollIsActive = true;
-            }
-           
-            
+            SpawnedRagdoll = Instantiate(RagdollToSpawn);
+            var unrag = SpawnedRagdoll.GetComponent<UnRagdoll>();
+            SpawnedRagdoll.transform.position = gameObject.transform.position;
+            SpawnedRagdoll.transform.rotation = gameObject.transform.rotation;
+
+            Rigidbody ragRb = unrag.WhereToSpawn.GetComponent<Rigidbody>();
+            ragRb.velocity = ragRb.mass * (body.velocity / body.mass) * 30;
+
+            unrag.inputCommand = Controller + "Fire1";
+            unrag.reactivate = this;
+            gameObject.SetActive(false);
         }
 	}
+
+    public void Reactivate(GameObject ragdoll, GameObject moveto)
+    {
+        gameObject.SetActive(true);
+        gameObject.transform.position = moveto.transform.position;
+        Vector3 velocity = moveto.GetComponent<Rigidbody>().velocity;
+        body.velocity = velocity;
+        Destroy(ragdoll);
+    }
 }

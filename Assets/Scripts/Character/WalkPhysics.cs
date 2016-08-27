@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent(typeof(Rigidbody))]
-public class WalkPhysics : MonoBehaviour {
+public class WalkPhysics : MonoBehaviour, DIReceiver {
 
     Rigidbody RigidB;
 
@@ -18,15 +19,13 @@ public class WalkPhysics : MonoBehaviour {
         RigidB = GetComponent<Rigidbody>();
     }
 
-    public void SetMovementInput(Vector3 input)
+    public void ApplyDI(Vector3 input)
     {
         NormalizedInput = input.normalized;
     }
 
-
     void FixedUpdate()
     {
-
         RigidB.velocity -= new Vector3(RigidB.velocity.x * VelocityFalloff * Time.deltaTime, 0.0f, RigidB.velocity.z * VelocityFalloff * Time.deltaTime);
 
         if (RigidB.velocity.magnitude < MaxVelocityMag)
