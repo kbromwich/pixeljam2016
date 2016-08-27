@@ -24,6 +24,11 @@ public class PlayerSpawn : MonoBehaviour {
             {
                 movement.Controller = controller;
             }
+            var ragdoll = obj.GetComponent<Ragdoll>();
+            if (movement != null)
+            {
+                ragdoll.Controller = controller;
+            }
         }
 	}
 }

@@ -9,14 +9,14 @@ public class Ragdoll : MonoBehaviour {
 
     public PlayerMovementInput input;
 
-    public string RagdollKey;
+    public string Controller;
     GameObject SpawnedRagdoll;
 
     bool RagdollIsActive = false;
 	
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetButtonDown(RagdollKey))
+	    if(Input.GetButtonDown(Controller + "Fire1"))
         {
             if(RagdollIsActive)
             {

@@ -29,13 +29,13 @@ public class MainMenu : MonoBehaviour
         play.action = Play;
 
         players = new MenuItem("Players");
-        for (int i = 1; i <= 4; i++) {
+        for (int i = 1; i <= 5; i++) {
             var opt = new MenuOption(i.ToString());
             players.options.Add(opt);
         }
 
         bots = new MenuItem("Bots");
-        for (int i = 1; i <= 4; i++)
+        for (int i = 1; i <= 5; i++)
         {
             var opt = new MenuOption(i.ToString());
             bots.options.Add(opt);
