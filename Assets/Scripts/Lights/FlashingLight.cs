@@ -4,7 +4,9 @@ using System.Collections;
 public class FlashingLight : MonoBehaviour
 {
 
-    public float FlashRate = 1.0f;
+    public float FlashTimeOn = 1.0f;
+    public float FlashTimeOff = 1.0f;
+    public float Delay = 0.0f;
 
     float NextLightChange = 0.0f;
     bool LightOn = false;
@@ -16,6 +18,7 @@ public class FlashingLight : MonoBehaviour
     {
         LightToFlash = GetComponent<Light>();
         LightIntensity = LightToFlash.intensity;
+        NextLightChange = Time.time + Delay;
     }
 
     void Update()
@@ -25,7 +28,7 @@ public class FlashingLight : MonoBehaviour
             LightOn = !LightOn;
 
             LightToFlash.intensity = LightOn ? 0 : LightIntensity;
-            NextLightChange = Time.time + FlashRate;
+            NextLightChange = Time.time + (LightOn ? FlashTimeOff : FlashTimeOn) ;
         }
     }
 }

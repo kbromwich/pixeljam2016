@@ -12,12 +12,13 @@ public class Health : MonoBehaviour {
     public void TakeDamage(float damage)
 	{
         print("Hit! Damage dealt: " + damage);
-        ChangeHealth(-damage);
+        ChangeHealth(-Mathf.Abs(damage));
+
     }
 
 	public void ChangeHealth(float amount)
 	{
-        print("Health changed to " + amount);
+        //print("Health changed to " + amount);
 		health += amount;
 		if(HealthChangedEvent != null)
 			HealthChangedEvent (health/maxHealth);
