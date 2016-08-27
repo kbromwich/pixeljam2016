@@ -12,7 +12,7 @@ public class Ragdoll : MonoBehaviour {
     public string Controller;
     GameObject SpawnedRagdoll;
 
-    bool RagdollIsActive = false;
+    public bool RagdollIsActive = false;
 
     void Start()
     {
@@ -59,11 +59,13 @@ public class Ragdoll : MonoBehaviour {
 
         unrag.inputCommand = Controller + "Fire1";
         unrag.reactivate = this;
+        RagdollIsActive = true;
         gameObject.SetActive(false);
     }
 
     public void Reactivate(GameObject ragdoll, GameObject moveto)
     {
+        RagdollIsActive = false;
         gameObject.SetActive(true);
         gameObject.transform.position = moveto.transform.position;
         Vector3 velocity = moveto.GetComponent<Rigidbody>().velocity;
