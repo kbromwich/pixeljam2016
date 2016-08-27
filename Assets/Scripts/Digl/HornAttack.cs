@@ -13,9 +13,9 @@ public class HornAttack : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider c){
         HealthHitbox health = c.gameObject.GetComponent<HealthHitbox>();
-		print ("Collision");
+//		print ("Collision");
 		if (health && (health != HealthToAvoid)) {
-			print ("Horn Attack collision!");
+//			print ("Horn Attack collision!");
             Instantiate(Emitter, c.transform.position, c.transform.rotation);
             Attack attackComp = GetComponent<Attack>();
             attackComp.MakeAttack(health.health);
