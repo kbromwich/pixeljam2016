@@ -7,6 +7,7 @@ public class UnRagdoll : MonoBehaviour {
     public Ragdoll reactivate = null;
 
     public GameObject WhereToSpawn;
+    public GameObject Horn;
 
     // Use this for initialization
     void Start () {

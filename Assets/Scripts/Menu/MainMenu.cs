@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public static int NumPlayers = 1;
+    public static int NumPlayers = 2;
 
     public TextMesh[] menuItems;
     

@@ -11,11 +11,13 @@ public class Health : MonoBehaviour {
 
     public void TakeDamage(float damage)
 	{
-		ChangeHealth(-damage);
+        print("Hit! Damage dealt: " + damage);
+        ChangeHealth(-damage);
     }
 
-	private void ChangeHealth(float amount)
+	public void ChangeHealth(float amount)
 	{
+        print("Health changed to " + amount);
 		health += amount;
 		if(HealthChangedEvent != null)
 			HealthChangedEvent (health/maxHealth);

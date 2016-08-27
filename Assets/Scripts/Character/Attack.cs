@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Attack : MonoBehaviour {
 
-    float damage = 15.0f;
+    public float damage = 15.0f;
 
-    float AttackDelay = 0.5f;
-    float NextAttackTime = 0.0f;
+    public float AttackDelay = 0.5f;
+    public float NextAttackTime = 0.0f;
 
     public void MakeAttack(Health health)
     {
