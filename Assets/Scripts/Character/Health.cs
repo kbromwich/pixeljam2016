@@ -11,13 +11,14 @@ public class Health : MonoBehaviour {
 
     public void TakeDamage(float damage)
 	{
-		ChangeHealth(damage);
+		ChangeHealth(-damage);
     }
 
 	private void ChangeHealth(float amount)
 	{
 		health += amount;
-		HealthChangedEvent (health/maxHealth);
+		if(HealthChangedEvent != null)
+			HealthChangedEvent (health/maxHealth);
 		if(health < 0f)
 		{
 			KillCharacter();

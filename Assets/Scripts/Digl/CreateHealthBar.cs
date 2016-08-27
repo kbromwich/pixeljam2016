@@ -11,7 +11,7 @@ public class CreateHealthBar : MonoBehaviour {
 		healthBarObject.transform.rotation = transform.rotation;
 		healthBarObject.transform.SetParent(transform);
 		healthBarObject.GetComponent<HealthBar>().SetHealthToFollow(GetComponent<Health>());
-		Destroy (this);
+//		Destroy (this);
 	}
 
 
