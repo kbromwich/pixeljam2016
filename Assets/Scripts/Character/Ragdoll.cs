@@ -1,0 +1,39 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Ragdoll : MonoBehaviour {
+
+    public GameObject RagdollToSpawn;
+    public float TimeSinceRagdoll;
+    public GameObject StandardCharacter;
+
+    public string RagdollKey;
+    GameObject SpawnedRagdoll;
+
+    bool RagdollIsActive = false;
+	
+	// Update is called once per frame
+	void Update () {
+	    if(Input.GetButtonDown(RagdollKey))
+        {
+            if(RagdollIsActive)
+            {
+                Destroy(SpawnedRagdoll);
+                StandardCharacter.SetActive(true);
+                RagdollIsActive = false;
+            }
+            else
+            {
+                SpawnedRagdoll = Instantiate(RagdollToSpawn);
+                SpawnedRagdoll.transform.position = StandardCharacter.transform.position;
+                SpawnedRagdoll.transform.rotation = StandardCharacter.transform.rotation;
+                SpawnedRagdoll.transform.localScale = StandardCharacter.transform.localScale;
+                //SpawnedRagdoll.transform.parent = StandardCharacter.transform.parent;
+                StandardCharacter.SetActive(false);
+                RagdollIsActive = true;
+            }
+           
+            
+        }
+	}
+}
