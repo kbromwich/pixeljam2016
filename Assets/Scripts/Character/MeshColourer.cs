@@ -12,6 +12,7 @@ public class MeshColourer : MonoBehaviour {
 		this.color = color;
 		foreach (Renderer smr in meshesToColour) {
 			smr.material.color = color;
+			smr.material.SetColor("_MKGlowColor", color);
 		}
 	}
 }
