@@ -11,10 +11,10 @@ public class PlayerSpawn : MonoBehaviour {
 	void Awake () {
 	    if (playerNum < MainMenu.NumPlayers)
         {
-            string controller = "k";
-            if (playerNum > 0)
+            string controller = "k" + playerNum; // keyboard is p1 and p2
+            if (playerNum > 2)
             {
-                controller = "j" + 1;
+                controller = "j" + (playerNum - 2); // Controllers are p3 to p12
             }
             
             GameObject obj = Instantiate<GameObject>(ItemToSpawn);
