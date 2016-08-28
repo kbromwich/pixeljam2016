@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public const int MaxPlayers = 12;
-    public static int NumPlayers = 12;
+    public static int NumPlayers = 2;
 
     public TextMesh[] menuItems;
+    
+    public AudioSource menuItemChange;
+    public AudioSource menuItemSelect;
     
     int selectedIndex = 0;
     int xinput = 0;
@@ -20,7 +23,13 @@ public class MainMenu : MonoBehaviour
 
     // Use this for initialization
     void Start () {
-	
+	    foreach (var item in menuItems)
+        {
+            if (item.text.StartsWith("PLAYERS"))
+            {
+                item.text = "PLAYERS <" + NumPlayers + ">";
+            }
+        }
 	}
 	
 	// Update is called once per frame
@@ -39,6 +48,17 @@ public class MainMenu : MonoBehaviour
             xinput = Math.Sign(horizontalAxis);
         }
 
+        UpdateSelectedMenuItem();
+        UpdateSliderItem();
+        UpdateSubmit();
+
+        lastxinput = horizontalAxis;
+        lastyinput = verticalAxis;
+        lastsubmit = submit;
+    }
+
+    void UpdateSelectedMenuItem()
+    {
         selectedIndex = Mod(selectedIndex - yinput, menuItems.Length);
         submit = !lastsubmit && Input.GetButtonDown("Submit");
 
@@ -47,17 +67,32 @@ public class MainMenu : MonoBehaviour
             menuItems[i].color = Color.white;
         }
 
+        if (yinput != 0)
+        {
+            menuItemChange.Play();
+        }
 
         var selected = menuItems[selectedIndex];
         selected.color = Color.green;
+    }
 
+    void UpdateSliderItem()
+    {
+        var selected = menuItems[selectedIndex];
         if (selected.text.StartsWith("PLAYERS"))
         {
             NumPlayers = Mod(NumPlayers - 1 + xinput, MaxPlayers) + 1;
             selected.text = "PLAYERS <" + NumPlayers + ">";
+            if (xinput != 0)
+            {
+                menuItemChange.Play();
+            }
         }
+    }
 
-
+    void UpdateSubmit()
+    {
+        var selected = menuItems[selectedIndex];
         if (submit)
         {
             if (selected.text.Equals("PLAY"))
@@ -69,11 +104,8 @@ public class MainMenu : MonoBehaviour
                 Application.Quit();
             }
         }
-
-        lastxinput = horizontalAxis;
-        lastyinput = verticalAxis;
-        lastsubmit = submit;
     }
+
 
     public static int Mod(int x, int m)
     {
