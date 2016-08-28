@@ -17,5 +17,8 @@ public class MeshColourer : MonoBehaviour {
 			r.material.SetColor ("_MKGlowColor", color);
 			r.material.SetColor ("_MKGlowTexColor", color);
 		}
+		foreach (Renderer rend in meshesToColour) {
+			rend.material.color = color;
+		}
 	}
 }
