@@ -10,7 +10,7 @@ public class Ragdoll : MonoBehaviour {
     Rigidbody body;
 
     public string Controller;
-    GameObject SpawnedRagdoll;
+    public GameObject SpawnedRagdoll;
 
     public bool RagdollIsActive = false;
 
@@ -42,9 +42,6 @@ public class Ragdoll : MonoBehaviour {
 
         Rigidbody HornRB = unrag.Horn.GetComponent<Rigidbody>();
         HornRB.AddForce(ragRb.transform.forward * -6000.0f);
-
-		DismemberRagdoll dismember = SpawnedRagdoll.GetComponent<DismemberRagdoll> ();
-		dismember.DismemberAfterCountdown (0.5f);
 
 		MeshColourer colourer = SpawnedRagdoll.GetComponent<MeshColourer> ();
 		colourer.SetMaterialColour (gameObject.GetComponent<MeshColourer> ().color);

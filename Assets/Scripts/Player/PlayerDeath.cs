@@ -8,10 +8,20 @@ public class PlayerDeath : MonoBehaviour {
 
         Ragdoll ragdoll = GetComponent<Ragdoll>();
 
+		GameObject ragdollObject = ragdoll.SpawnedRagdoll;
+		if (ragdollObject != null) {
+			ragdollObject.GetComponent<MeshColourer> ().SetMaterialColour (Color.black);
+		}
+		GetComponent<MeshColourer> ().SetMaterialColour (Color.black);
+
         if(!ragdoll.RagdollIsActive)
         {
             ragdoll.ActiveRagdoll();
-        }
+
+		}
+
+		DismemberRagdoll dismember = ragdoll.GetComponent<DismemberRagdoll> ();
+		dismember.DismemberAfterCountdown (0.5f);
 
 		GameController controller = FindObjectOfType<GameController>();
 		controller.KillPlayer(GetComponent<Player>());
