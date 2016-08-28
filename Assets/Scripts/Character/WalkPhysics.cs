@@ -33,7 +33,7 @@ public class WalkPhysics : MonoBehaviour, DIReceiver {
             //Feature not bug. Run faster diag
             float VerticalSpeed = NormalizedInput.x * WalkSpeed * Time.deltaTime * RigidB.mass;
             float HorizontalSpeed = -NormalizedInput.z * WalkSpeed * Time.deltaTime * RigidB.mass;
-            RigidB.AddForce(new Vector3(VerticalSpeed, 0, HorizontalSpeed));
+			RigidB.AddForce(new Vector3(VerticalSpeed, 0, HorizontalSpeed), ForceMode.Impulse);
         }
 
         NormalizedInput = Vector3.zero;
