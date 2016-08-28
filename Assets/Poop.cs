@@ -40,6 +40,11 @@ public class Poop : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider c){
+		Ragdoll ragdoll = c.GetComponent<Ragdoll> ();
+		if (ragdoll) {
+			ragdoll.ActiveRagdoll ();
+		}
+
 		Rigidbody body = c.GetComponent<Rigidbody> ();
 		if (body) {
 			body.AddExplosionForce (explosionForce, transform.position, endRadius);		
