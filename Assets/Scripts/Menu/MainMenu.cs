@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public static int NumPlayers = 2;
+    public const int MaxPlayers = 12;
+    public static int NumPlayers = 12;
 
     public TextMesh[] menuItems;
     
@@ -52,7 +53,7 @@ public class MainMenu : MonoBehaviour
 
         if (selected.text.StartsWith("PLAYERS"))
         {
-            NumPlayers = Mod(NumPlayers - 1 + xinput, 5) + 1;
+            NumPlayers = Mod(NumPlayers - 1 + xinput, MaxPlayers) + 1;
             selected.text = "PLAYERS <" + NumPlayers + ">";
         }
 
