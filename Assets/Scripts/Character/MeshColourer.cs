@@ -20,5 +20,9 @@ public class MeshColourer : MonoBehaviour {
 		foreach (Renderer rend in meshesToColour) {
 			rend.material.color = color;
 		}
+		Xft.XWeaponTrail[] trails = GetComponentsInChildren<Xft.XWeaponTrail> ();
+		foreach (Xft.XWeaponTrail x in trails) {
+			x.MyColor = color;
+		}
 	}
 }
