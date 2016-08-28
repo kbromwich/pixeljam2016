@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour {
         {
             targets[i] = Players[i].transform;
         }
+        cameraControl.m_Targets = targets;
     }
 
 
