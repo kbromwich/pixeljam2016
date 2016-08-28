@@ -9,7 +9,7 @@ public class PlayerSpawn : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-	    if (playerNum < MainMenu.NumPlayers)
+	    if (playerNum <= MainMenu.NumPlayers)
         {
             string controller = "k" + playerNum; // keyboard is p1 and p2
             if (playerNum > 2)
