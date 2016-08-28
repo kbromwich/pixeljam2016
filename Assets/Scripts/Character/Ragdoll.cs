@@ -47,7 +47,7 @@ public class Ragdoll : MonoBehaviour {
 		dismember.DismemberAfterCountdown (0.5f);
 
 		MeshColourer colourer = SpawnedRagdoll.GetComponent<MeshColourer> ();
-		colourer.SetMaterialColour (GetComponent<MeshColourer> ().color);
+		colourer.SetMaterialColour (gameObject.GetComponent<MeshColourer> ().color);
 
 //		unrag.ChestSkinnerMeshRenderer.material.color = GetComponent<MeshColourer>().color;
         //ragRb.AddTorque(ragRb.transform.forward * 300000000.0f);

@@ -10,9 +10,12 @@ public class MeshColourer : MonoBehaviour {
 	public void SetMaterialColour(Color color)
 	{
 		this.color = color;
-		foreach (Renderer smr in meshesToColour) {
-			smr.material.color = color;
-			smr.material.SetColor("_MKGlowColor", color);
+		HasGlowTexture[] hgt = GetComponentsInChildren<HasGlowTexture> ();
+		Renderer r;
+		foreach (HasGlowTexture h in hgt) {
+			r = h.GetComponent<Renderer> ();
+			r.material.SetColor ("_MKGlowColor", color);
+			r.material.SetColor ("_MKGlowTexColor", color);
 		}
 	}
 }
