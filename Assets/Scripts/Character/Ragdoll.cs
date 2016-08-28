@@ -53,9 +53,14 @@ public class Ragdoll : MonoBehaviour {
         //ragRb.AddTorque(ragRb.transform.forward * 300000000.0f);
         //ragRb.AddForce(ragRb.transform.forward * 10000000.0f);
 
+		Health thisHealth = GetComponent<Health>();
+
         //Health 
         Health ragHealth = SpawnedRagdoll.GetComponent<Health>();
-        ragHealth.health = GetComponent<Health>().health;
+		ragHealth.health = thisHealth.health;
+
+		HornAttack hornAttack = SpawnedRagdoll.GetComponentInChildren<HornAttack> ();
+		hornAttack.HealthToAvoid = thisHealth;
 
         unrag.inputCommand = Controller + "Fire1";
         unrag.reactivate = this;
