@@ -20,7 +20,7 @@ public class PlayerDeath : MonoBehaviour {
 
 		}
 
-		DismemberRagdoll dismember = ragdoll.GetComponent<DismemberRagdoll> ();
+		DismemberRagdoll dismember = ragdoll.SpawnedRagdoll.GetComponentInChildren<DismemberRagdoll> ();
 		dismember.DismemberAfterCountdown (0.5f);
 
 		GameController controller = FindObjectOfType<GameController>();
