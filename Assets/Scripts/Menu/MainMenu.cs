@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public static int NumPlayers = 2;
 
     public TextMesh[] menuItems;
+    public TextMesh playerNumText;
     
     public AudioSource menuItemChange;
     public AudioSource menuItemSelect;
@@ -23,13 +24,7 @@ public class MainMenu : MonoBehaviour
 
     // Use this for initialization
     void Start () {
-	    foreach (var item in menuItems)
-        {
-            if (item.text.StartsWith("PLAYERS"))
-            {
-                item.text = "PLAYERS <" + NumPlayers + ">";
-            }
-        }
+        playerNumText.text = "<" + NumPlayers + ">";
 	}
 	
 	// Update is called once per frame
@@ -82,7 +77,7 @@ public class MainMenu : MonoBehaviour
         if (selected.text.StartsWith("PLAYERS"))
         {
             NumPlayers = Mod(NumPlayers - 1 + xinput, MaxPlayers) + 1;
-            selected.text = "PLAYERS <" + NumPlayers + ">";
+            playerNumText.text = "<" + NumPlayers + ">";
             if (xinput != 0)
             {
                 menuItemChange.Play();
