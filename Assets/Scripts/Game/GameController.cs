@@ -36,6 +36,15 @@ public class GameController : MonoBehaviour {
     }
 
 
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
+
+
     public void KillPlayer(Player player)
     {
         Players.Remove(player);
