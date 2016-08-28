@@ -3,8 +3,8 @@ using System.Collections;
 
 public class UnRagdoll : MonoBehaviour {
 
-    public string inputCommand = "";
-    public Ragdoll reactivate = null;
+    public string InputCommand = "";
+    public Ragdoll SpawnedBy = null;
     public SkinnedMeshRenderer ChestSkinnerMeshRenderer;
 
     public GameObject WhereToSpawn;
@@ -18,11 +18,12 @@ public class UnRagdoll : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (inputCommand != "" && Input.GetButtonDown(inputCommand))
+        if (SpawnedBy)
         {
-            if (reactivate)
+            SpawnedBy.UpdatePositionToRagdoll(WhereToSpawn);
+            if (InputCommand != "" && Input.GetButtonDown(InputCommand))
             {
-                reactivate.Reactivate(gameObject, WhereToSpawn);
+                SpawnedBy.Reactivate();
             }
         }
     }

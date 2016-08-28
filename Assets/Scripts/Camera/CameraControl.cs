@@ -4,8 +4,10 @@ public class CameraControl : MonoBehaviour
 {
     public float m_DampTime = 0.2f;                 
     public float m_ScreenEdgeBuffer = 4f;           
-    public float m_MinSize = 6.5f;                  
-    [HideInInspector] public Transform[] m_Targets; 
+    public float m_MinSize = 6.5f;     
+                 
+    [HideInInspector]
+    public Transform[] m_Targets; 
 
 
     private Camera m_Camera;                        
@@ -42,8 +44,8 @@ public class CameraControl : MonoBehaviour
 
         for (int i = 0; i < m_Targets.Length; i++)
         {
-            if (!m_Targets[i].gameObject.activeSelf)
-                continue;
+            //if (!m_Targets[i].gameObject.activeSelf)
+            //    continue;
 
             averagePos += m_Targets[i].position;
             numTargets++;
@@ -73,8 +75,8 @@ public class CameraControl : MonoBehaviour
 
         for (int i = 0; i < m_Targets.Length; i++)
         {
-            if (!m_Targets[i].gameObject.activeSelf)
-                continue;
+            //if (!m_Targets[i].gameObject.activeSelf)
+            //    continue;
 
             Vector3 targetLocalPos = transform.InverseTransformPoint(m_Targets[i].position);
 

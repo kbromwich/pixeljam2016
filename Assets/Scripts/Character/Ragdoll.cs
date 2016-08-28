@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System;
 
 public class Ragdoll : MonoBehaviour {
 
@@ -7,12 +8,21 @@ public class Ragdoll : MonoBehaviour {
     public float TimeSinceRagdoll;
     public float VelocityMultiplier = 30.0f;
 
+    [HideInInspector]
+    public bool RagdollIsActive = false;
+
     Rigidbody body;
 
     public string Controller;
-    public GameObject SpawnedRagdoll;
 
-    public bool RagdollIsActive = false;
+
+
+    [HideInInspector]
+    public GameObject RagdollParent;
+    [HideInInspector]
+    public GameObject RagdollBody;
+    [HideInInspector]
+    public UnRagdoll UnRagdoll;
 
     void Start()
     {
@@ -29,54 +39,65 @@ public class Ragdoll : MonoBehaviour {
            
     public void ActiveRagdoll()
     {
-        SpawnedRagdoll = Instantiate(RagdollToSpawn);
-        var unrag = SpawnedRagdoll.GetComponent<UnRagdoll>();
-        // We pass the reference to our own health on the the ragdoll. Its collider's events will be pushed onto ours, this way.
-        HealthReference ragdollHealth = SpawnedRagdoll.GetComponent<HealthReference>();
-        ragdollHealth.actualHealth = GetComponent<Health>();
-        SpawnedRagdoll.transform.position = gameObject.transform.position;
-        SpawnedRagdoll.transform.rotation = gameObject.transform.rotation;
+        RagdollParent = Instantiate(RagdollToSpawn);
 
-        Rigidbody ragRb = unrag.WhereToSpawn.GetComponent<Rigidbody>();
+        // We pass the reference to our own health on the the ragdoll. Its collider's events will be pushed onto ours, this way.
+        HealthReference ragdollHealth = RagdollParent.GetComponent<HealthReference>();
+        ragdollHealth.actualHealth = GetComponent<Health>();
+        RagdollParent.transform.position = gameObject.transform.position;
+        RagdollParent.transform.rotation = gameObject.transform.rotation;
+
+        UnRagdoll = RagdollParent.GetComponent<UnRagdoll>();
+        RagdollBody = UnRagdoll.WhereToSpawn;
+        Rigidbody ragRb = UnRagdoll.WhereToSpawn.GetComponent<Rigidbody>();
         ragRb.velocity = ragRb.mass * (body.velocity / body.mass) * VelocityMultiplier;
 
-        Rigidbody HornRB = unrag.Horn.GetComponent<Rigidbody>();
+        Rigidbody HornRB = UnRagdoll.Horn.GetComponent<Rigidbody>();
         HornRB.AddForce(ragRb.transform.forward * -6000.0f);
 
-		MeshColourer colourer = SpawnedRagdoll.GetComponent<MeshColourer> ();
+		MeshColourer colourer = RagdollParent.GetComponent<MeshColourer> ();
 		colourer.SetMaterialColour (gameObject.GetComponent<MeshColourer> ().color);
 
 //		unrag.ChestSkinnerMeshRenderer.material.color = GetComponent<MeshColourer>().color;
         //ragRb.AddTorque(ragRb.transform.forward * 300000000.0f);
         //ragRb.AddForce(ragRb.transform.forward * 10000000.0f);
 
-		Health thisHealth = GetComponent<Health>();
 
         //Health 
-        Health ragHealth = SpawnedRagdoll.GetComponent<Health>();
+		Health thisHealth = GetComponent<Health>();
+        Health ragHealth = RagdollParent.GetComponent<Health>();
 		ragHealth.health = thisHealth.health;
 
-		HornAttack hornAttack = SpawnedRagdoll.GetComponentInChildren<HornAttack> ();
+		HornAttack hornAttack = RagdollParent.GetComponentInChildren<HornAttack> ();
 		hornAttack.HealthToAvoid = thisHealth;
 
-        unrag.inputCommand = Controller + "Fire1";
-        unrag.reactivate = this;
-        RagdollIsActive = true;
+
+        UnRagdoll.SpawnedBy = this;
+        UnRagdoll.InputCommand = Controller + "Fire1";
         gameObject.SetActive(false);
+        RagdollIsActive = true;
     }
 
-    public void Reactivate(GameObject ragdoll, GameObject moveto)
+    public void UpdatePositionToRagdoll(GameObject moveto)
     {
-        RagdollIsActive = false;
-        gameObject.SetActive(true);
         gameObject.transform.position = moveto.transform.position;
         Vector3 velocity = moveto.GetComponent<Rigidbody>().velocity;
         body.velocity = velocity;
+    }
+
+    public void Reactivate()
+    {
+        gameObject.SetActive(true);
 
         //Health
 //        Health health = ragdoll.GetComponent<Health>();
 //        GetComponent<Health>().ChangeHealth(health.health);
 
-        Destroy(ragdoll);
+        Destroy(RagdollParent);
+        RagdollParent = null;
+        RagdollBody = null;
+        UnRagdoll = null;
+        RagdollIsActive = false;
     }
+
 }
