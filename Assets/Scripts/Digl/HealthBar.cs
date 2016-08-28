@@ -13,8 +13,14 @@ public class HealthBar : MonoBehaviour {
 	}
 
 	private void HealthChanged(float normHealthValue){
-		Rect r = healthRect.rect;
-		r.width = normHealthValue * maxHealthLength;
-		healthRect.sizeDelta = new Vector2(r.width, r.height);
+        if (healthRect.rect != null)
+        {
+            Rect r = healthRect.rect;
+       
+            r.width = normHealthValue * maxHealthLength;
+            healthRect.sizeDelta = new Vector2(r.width, r.height);
+
+        }
+
 	}
 }
