@@ -18,7 +18,7 @@ public class Attack : MonoBehaviour {
 	{
 		if (NextAttackTime < Time.time)
 		{
-			health.TakeDamage(damage = GetVelocityDamage());
+			health.TakeDamage(damage + GetVelocityDamage());
 			NextAttackTime = Time.time + AttackDelay;
 		}
 	}
