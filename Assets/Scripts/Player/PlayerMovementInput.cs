@@ -15,11 +15,15 @@ public class PlayerMovementInput : MonoBehaviour
 
     void Update()
     {
-        float VerticalSpeed = Input.GetAxis(Controller + "Vertical");
-        float HorizontalSpeed = Input.GetAxis(Controller + "Horizontal");
+        float verticalSpeed = Input.GetAxis(Controller + "Vertical");
+        float horizontalSpeed = Input.GetAxis(Controller + "Horizontal");
+        if (verticalSpeed != 0 || horizontalSpeed != 0)
+        {
+            print("input from " + Controller);
+        }
         if (DIReceiver != null)
         {
-            DIReceiver.ApplyDI(new Vector3(VerticalSpeed, 0.0f, HorizontalSpeed));
+            DIReceiver.ApplyDI(new Vector3(verticalSpeed, 0.0f, horizontalSpeed));
         }
     }
 
